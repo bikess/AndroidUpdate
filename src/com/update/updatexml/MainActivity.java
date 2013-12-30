@@ -9,13 +9,18 @@ import android.view.Menu;
 public class MainActivity extends Activity {
     
 	public UpdateManager updatemanager;
+	public UpdateManager2 updatemanager2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-//		这里定义版本更新函数的接口，传递参数为当前的活动，当前的activity！
-		updatemanager = new UpdateManager(this);
-		updatemanager.checkUpdate();
+		
+////		这里定义版本更新函数的接口，传递参数为当前的活动，当前的activity！UpdateManager是利用自己创建线程来实现异步下载任务
+//		updatemanager = new UpdateManager(this);
+//		updatemanager.checkUpdate();
+//	UpdateManager2 是利用异步任务类AsyncTask实现异步下载更新
+		updatemanager2 = new UpdateManager2(this);
+		updatemanager2.checkUpdate();
 	}
 
 	@Override
